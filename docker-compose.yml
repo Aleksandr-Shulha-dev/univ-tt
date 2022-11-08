@@ -1,0 +1,31 @@
+version: '3.9'
+services:
+  backend:
+    image: backend
+    container_name: backend
+    build:
+      context: .
+      dockerfile: .docker/backend.Dockerfile
+    ports:
+      - '8001:8001'
+    networks:
+      - backend_network
+      - frontend_network
+  frontend:
+    image: frontend
+    container_name: frontend
+    build:
+      context: .
+      dockerfile: .docker/frontend.Dockerfile
+    depends_on:
+      - backend
+    ports:
+      - '3000:3000'
+    networks:
+      - backend_network
+      - frontend_network
+networks:
+  backend_network:
+    driver: bridge
+  frontend_network:
+    driver: bridge
