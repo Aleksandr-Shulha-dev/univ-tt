@@ -2,4 +2,16 @@ import { store } from '../../store';
 
 type RootState = ReturnType<typeof store.getState>;
 
-export type { RootState };
+interface IPlayer {
+  id: string
+	name: string
+	avatar: string
+	score: number
+	bio: string
+}
+
+interface PlayersInitialState {
+  playerList: IPlayer[]
+}
+
+export type { RootState, IPlayer, PlayersInitialState };
