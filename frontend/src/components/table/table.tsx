@@ -10,18 +10,16 @@ import {
 import './styles.scss';
  
 const Table: FC = () => {
-  const [isByGrowth, setIsByGrowth] = useState<boolean>(true);
+  const { isScoreByGrowth } = useAppSelector((state) => state.players)
   const [isTableHeadFixed, setIsTableHeadFixed] = useState(false);
   const { playerList } = useAppSelector((state) => state.players);
  
-  const sortFunc = isByGrowth ? sortByGrowthFunc : sortByDescendingFunc;
+  const sortFunc = isScoreByGrowth ? sortByGrowthFunc : sortByDescendingFunc;
 
   return (
     <table className="table">
       <thead>
         <HeadTableRow
-          sortToggle={setIsByGrowth}
-          isByGrowth={isByGrowth}
           setIsTableHeadFixed={setIsTableHeadFixed}
           isTableHeadFixed={isTableHeadFixed}
         />
