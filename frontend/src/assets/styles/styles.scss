@@ -21,6 +21,7 @@ html {
 body {
   margin: 0;
   padding: 0;
+  background-color: var(--gray100);
 }
 
 a {
@@ -43,6 +44,30 @@ li {
   padding: 0;
   list-style: none;
 }
+
+tr {
+  display: flex;
+  height: 70px;
+  cursor: default;
+}
+
+td, th {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  border-bottom: 1px solid var(--gray200);
+
+  &:first-child {
+    margin-left: 20px;
+  }
+
+  &:last-child {
+    width: 55px;
+    margin-right: 20px;
+  }
+}
+
+
 
 button {
   border: none;
