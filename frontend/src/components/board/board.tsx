@@ -27,7 +27,7 @@ const Board: FC = () => {
   }, [])
 
   return (
-    <div className="board">
+    <div className="board" id="broad">
       {
         playerList.length === 0 ?
           <EmptyBoard /> :
