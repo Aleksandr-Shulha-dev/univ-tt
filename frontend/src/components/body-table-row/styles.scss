@@ -1,0 +1,27 @@
+.body-row {
+  cursor: pointer;
+
+  &--scroll {
+    margin-top: 70px;
+  }
+
+  &:first-child {
+    animation: 1s highlight ease;
+  }
+
+  &:last-child &__cell {
+    border-bottom: none;
+  }
+
+  &__cell {
+    &:nth-child(2) {
+      flex: auto;
+      padding-left: 15px;
+    }
+    &:last-child {
+      justify-content: end;
+      font-size: 24px;
+      font-weight: var(--font-weight-bold);
+    }
+  }
+}
