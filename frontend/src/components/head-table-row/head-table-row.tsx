@@ -1,4 +1,4 @@
-import { FC, useEffect } from 'react';
+import { FC, useEffect, useRef } from 'react';
 import { changeScoreToggleState } from '../../store/slice'
 import { useAppDispatch, useAppSelector } from '../../hooks/store';
 import { changeLocalStorageScoreState } from '../../helpers';
@@ -17,8 +17,9 @@ const HeadTableRow: FC<HeadTableRowProps> = (
   const dispatch = useAppDispatch();
 
   useEffect(() => {
+    const broad = document.getElementById('broad');
     const handleScroll = () => {
-      window.pageYOffset > 170 ? 
+      Number(broad?.offsetTop) - window.scrollY <= 0 ? 
         setIsTableHeadFixed(true) :
         setIsTableHeadFixed(false); 
     }
