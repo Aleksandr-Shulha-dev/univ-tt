@@ -42,6 +42,12 @@ tr {
   cursor: default;
 }
 
+tbody > tr {
+  @media (max-width: $global-sm) {
+    height: 50px;
+  }
+}
+
 td, th {
   display: flex;
   align-items: center;
@@ -50,11 +56,19 @@ td, th {
 
   &:first-child {
     margin-left: 20px;
+
+    @media (max-width: $global-sm) {
+      margin-left: 15px;
+    }
   }
 
   &:last-child {
     width: 55px;
     margin-right: 20px;
+
+    @media (max-width: $global-sm) {
+      margin-right: 15px;
+    }
   }
 }
 
