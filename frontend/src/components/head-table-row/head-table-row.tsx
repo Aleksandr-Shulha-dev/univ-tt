@@ -1,4 +1,4 @@
-import { FC, useEffect, useRef } from 'react';
+import { FC, useEffect } from 'react';
 import { changeScoreToggleState } from '../../store/slice'
 import { useAppDispatch, useAppSelector } from '../../hooks/store';
 import { changeLocalStorageScoreState } from '../../helpers';
