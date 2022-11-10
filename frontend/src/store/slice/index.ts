@@ -8,7 +8,7 @@ const initialState: PlayersInitialState = {
 };
 
 const { reducer, actions } = createSlice({
-  name: 'someName',
+  name: 'player',
   initialState,
   reducers: {
     setPlayer: (state, action:PayloadAction<IPlayer>) => {
