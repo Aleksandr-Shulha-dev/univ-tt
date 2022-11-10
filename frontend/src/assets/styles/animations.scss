@@ -1,0 +1,21 @@
+@keyframes highlight {
+  from {
+    background-color: rgba(221, 159, 66, .12);
+    color: var(--primary);
+  }
+
+  to {
+    background-color: var(--white);
+    color: var(--black);
+  }
+}
+
+@keyframes infinityRotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}

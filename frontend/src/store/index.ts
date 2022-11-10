@@ -1,9 +1,9 @@
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query';
-import { reducer } from './slice';
+import { reducer as players} from './slice';
 
 const rootReducer = combineReducers({
-  reducer,
+  players,
 })
 
 export const store = configureStore({

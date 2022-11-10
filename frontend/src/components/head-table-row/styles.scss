@@ -1,0 +1,49 @@
+@use '../../assets/styles/variables.scss' as *;
+
+.head-row {
+  background-color: var(--white);
+  color: rgba(0, 0, 0, .4);
+  font-size: 14px;
+
+  &--fixed {
+    width: 1040px;
+    position: fixed;
+    top: 0;
+
+    @media (max-width: $special) {
+      width: calc(100% - 30px);
+    }
+  }
+  
+  &__cell {
+    font-weight: var(--font-weight-light);
+
+    &:first-child {
+      flex: auto;
+      padding-left: 56px;
+      text-align: left;
+    }
+
+    &:last-child {
+      justify-content: space-between;
+      cursor: pointer;
+    }
+  }
+}
+
+.arrow {
+  width: 7px;
+  height: 7px;
+  border-radius: 1px;
+  border-left: 2px solid var(--gray300);
+  border-top: 2px solid var(--gray300);
+  
+
+  &--up {
+    transform: rotate(45deg);
+  }
+
+  &--down {
+    transform: rotate(-135deg);
+  }
+}
