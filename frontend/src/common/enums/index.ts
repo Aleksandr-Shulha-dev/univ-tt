@@ -1,10 +1,9 @@
 enum AppRouter {
   BASE = "",
   MAIN = "/",
+  PLAYER = "/player",
+  OTHER = "*"
 }
 
-enum Api {
-  BASE = ""
-}
 
-export { AppRouter, Api }
+export { AppRouter }
