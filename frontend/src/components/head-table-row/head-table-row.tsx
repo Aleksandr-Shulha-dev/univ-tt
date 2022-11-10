@@ -1,16 +1,20 @@
 import { FC, useEffect } from 'react';
+import { changeScoreToggleState } from '../../store/slice'
+import { useAppDispatch, useAppSelector } from '../../hooks/store';
+import { changeLocalStorageScoreState } from '../../helpers';
+
 import './styles.scss';
 
 interface HeadTableRowProps {
-  sortToggle: (value: React.SetStateAction<boolean>) => void;
-  isByGrowth: boolean;
   isTableHeadFixed: boolean;
   setIsTableHeadFixed: (value: React.SetStateAction<boolean>) => void;
 }
  
 const HeadTableRow: FC<HeadTableRowProps> = (
-  { sortToggle, isByGrowth, isTableHeadFixed, setIsTableHeadFixed }
+  { isTableHeadFixed, setIsTableHeadFixed }
 ) => {
+  const { isScoreByGrowth } = useAppSelector((state) => state.players);
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,10 +29,11 @@ const HeadTableRow: FC<HeadTableRowProps> = (
   }, [])
 
   const headRowClazz = isTableHeadFixed ? "head-row head-row--fixed" : "head-row"
-  const arrowClazz = isByGrowth ? "arrow arrow--up" : "arrow arrow--down";
+  const arrowClazz = isScoreByGrowth ? "arrow arrow--down" : "arrow arrow--up";
 
   const handleClick = () => {
-    sortToggle((state: boolean) => !state)
+    dispatch(changeScoreToggleState());
+    changeLocalStorageScoreState();
   }
 
   return (

@@ -1,9 +1,23 @@
 import { IPlayer } from '../common/types'
 
-const parseLocalStorage = (): IPlayer[] => {
+const parseLocalStorageList = (): IPlayer[] => {
   const playerList = localStorage.getItem('playerList');
   return playerList ? JSON.parse(playerList) : []
 };
+
+const parseLocalStorageScoreToggleState = (): boolean => {
+  const isScoreByGrowth = localStorage.getItem('isScoreByGrowth');
+  return !!isScoreByGrowth;
+};
+
+const changeLocalStorageScoreState = () => {
+  const isScoreByGrowth = localStorage.getItem('isScoreByGrowth');
+  if(isScoreByGrowth) {
+    localStorage.removeItem('isScoreByGrowth');
+  } else {
+    localStorage.setItem('isScoreByGrowth', '1');
+  }
+}
 
 const updateLocalStorage = (newPlayer: IPlayer) => {
   const playerListJson = localStorage.getItem('playerList');
@@ -16,12 +30,14 @@ const updateLocalStorage = (newPlayer: IPlayer) => {
   }
 }
 
-const sortByGrowthFunc = (a: IPlayer, b: IPlayer):number => b.score - a.score;
-const sortByDescendingFunc = (a: IPlayer, b: IPlayer):number => a.score - b.score;
+const sortByGrowthFunc = (a: IPlayer, b: IPlayer):number => a.score - b.score;
+const sortByDescendingFunc = (a: IPlayer, b: IPlayer):number => b.score - a.score;
 
 export {
-  parseLocalStorage,
+  parseLocalStorageList,
   updateLocalStorage,
   sortByGrowthFunc,
-  sortByDescendingFunc
+  sortByDescendingFunc,
+  parseLocalStorageScoreToggleState,
+  changeLocalStorageScoreState
 }

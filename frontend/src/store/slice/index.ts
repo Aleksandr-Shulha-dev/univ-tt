@@ -1,10 +1,14 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { parseLocalStorage } from '../../helpers'
+import {
+  parseLocalStorageList,
+  parseLocalStorageScoreToggleState
+} from '../../helpers'
 
-import { IPlayer, PlayersInitialState } from '../../common/types';
+import { IPlayer, StoreInitialState } from '../../common/types';
 
-const initialState: PlayersInitialState = {
-  playerList: parseLocalStorage()
+const initialState: StoreInitialState = {
+  playerList: parseLocalStorageList(),
+  isScoreByGrowth: parseLocalStorageScoreToggleState(),
 };
 
 const { reducer, actions } = createSlice({
@@ -13,10 +17,13 @@ const { reducer, actions } = createSlice({
   reducers: {
     setPlayer: (state, action:PayloadAction<IPlayer>) => {
       state.playerList.push(action.payload);
+    },
+    changeScoreToggleState: (state) => {
+      state.isScoreByGrowth = !state.isScoreByGrowth
     }
   }
 });
 
-export const { setPlayer } = actions;
+export const { setPlayer, changeScoreToggleState } = actions;
 
 export { reducer }

@@ -10,8 +10,9 @@ interface IPlayer {
 	bio: string
 }
 
-interface PlayersInitialState {
-  playerList: IPlayer[]
+interface StoreInitialState {
+  playerList: IPlayer[];
+	isScoreByGrowth: boolean;	
 }
 
-export type { RootState, IPlayer, PlayersInitialState };
+export type { RootState, IPlayer, StoreInitialState };
