@@ -16,4 +16,12 @@ const updateLocalStorage = (newPlayer: IPlayer) => {
   }
 }
 
-export { parseLocalStorage, updateLocalStorage }
+const sortByGrowthFunc = (a: IPlayer, b: IPlayer):number => b.score - a.score;
+const sortByDescendingFunc = (a: IPlayer, b: IPlayer):number => a.score - b.score;
+
+export {
+  parseLocalStorage,
+  updateLocalStorage,
+  sortByGrowthFunc,
+  sortByDescendingFunc
+}
