@@ -1,3 +1,8 @@
+## Before instalation and run
+1. Create and fill `.env` files in backend folder. Example:
+  - `backend/.example.env`
+
+
 ## Run app in Docker
 1. Run ```npm run docker```
 2. Open ```http://localhost:3000/```
